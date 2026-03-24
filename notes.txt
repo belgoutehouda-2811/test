@@ -1,0 +1,9 @@
+13.5 admis
+17.0 admis
+9.5 recale
+12.0 admis
+14.0 admis
+6.0 recale
+5.5 recale
+8.5 recale
+10.0 admis

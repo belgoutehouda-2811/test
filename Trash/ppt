@@ -1,0 +1,119 @@
+
+# Lecture d'un fichier
+with open("mon_fichier.txt", "r") as fichier:
+    contenu = fichier.read()
+    print("Contenu du fichier:", contenu)
+
+# Écriture dans un fichier
+with open("nouveau_fichier.txt", "w") as fichier:
+    fichier.write("Bonjour le monde!\n")
+    fichier.write("Ceci est une nouvelle ligne.")
+
+# Ajout à un fichier existant
+with open("nouveau_fichier.txt", "a") as fichier:
+    fichier.write("\nCette ligne est ajoutée.")
+
+
+
+import csv
+
+# Écriture CSV
+with open("donnees.csv", "w", newline='') as fichier_csv:
+    writer = csv.writer(fichier_csv)
+    writer.writerow(["Nom", "Âge", "Ville"])
+    writer.writerow(["Alice", 25, "Paris"])
+    writer.writerow(["Bob", 30, "Lyon"])
+
+# Lecture CSV
+with open("donnees.csv", "r") as fichier_csv:
+    reader = csv.reader(fichier_csv)
+    for ligne in reader:
+        print("Ligne CSV:", ligne)
+
+
+
+import json
+
+# Données Python
+donnees = {
+    "utilisateurs": [
+        {"nom": "Alice", "age": 25, "ville": "Paris"},
+        {"nom": "Bob", "age": 30, "ville": "Lyon"}
+    ]
+}
+
+# Sérialisation (Python → JSON)
+with open("donnees.json", "w") as fichier_json:
+    json.dump(donnees, fichier_json, indent=4)
+
+# Désérialisation (JSON → Python)
+with open("donnees.json", "r") as fichier_json:
+    donnees_chargees = json.load(fichier_json)
+    print("Données JSON:", donnees_chargees)
+
+
+
+import math
+
+print("\n--- MATHÉMATIQUES ---")
+print("Racine carrée de 16:", math.sqrt(16))
+print("Sinus de 90°:", math.sin(math.radians(90)))
+print("Cosinus de 0:", math.cos(0))
+print("Logarithme de 100:", math.log(100))
+print("Arrondi supérieur de 3.2:", math.ceil(3.2))
+print("Arrondi inférieur de 3.9:", math.floor(3.9))
+print("Valeur de π:", math.pi)
+print("Valeur de e:", math.e)
+
+
+import random
+
+print("\n--- ALÉATOIRE ---")
+print("Nombre aléatoire [0,1]:", random.random())
+print("Nombre entre 1 et 10:", random.randint(1, 10))
+print("Nombre décimal entre 5 et 15:", random.uniform(5, 15))
+
+# Mélanger une liste
+liste = [1, 2, 3, 4, 5]
+random.shuffle(liste)
+print("Liste mélangée:", liste)
+
+# Choix aléatoire
+choix = random.choice(["pomme", "banane", "orange"])
+print("Fruit aléatoire:", choix)
+
+
+# EXPRESSIONS RÉGULIÈRES
+
+
+import re
+
+texte = "J'ai 25 ans, mon numéro est 06-12-34-56-78, et j'habite au 15 rue de Paris."
+
+print("\n--- EXPRESSIONS RÉGULIÈRES ---")
+
+# Recherche de tous les nombres
+nombres = re.findall(r'\d+', texte)
+print("Tous les nombres:", nombres)
+
+# Recherche d'un motif spécifique
+telephone = re.search(r'\d{2}-\d{2}-\d{2}-\d{2}-\d{2}', texte)
+if telephone:
+    print("Numéro de téléphone trouvé:", telephone.group())
+
+# Remplacement de texte
+nouveau_texte = re.sub(r'\d+', "XXX", texte)
+print("Texte masqué:", nouveau_texte)
+
+# Découpage par motif
+mots = re.split(r'\s+', "Bonjour   le    monde")
+print("Mots découpés:", mots)
+
+# Validation d'email
+def valider_email(email):
+    pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+    return re.match(pattern, email) is not None
+
+emails = ["test@example.com", "invalid.email", "bonjour@domaine.fr"]
+for email in emails:
+    print(f"{email} est valide: {valider_email(email)}")

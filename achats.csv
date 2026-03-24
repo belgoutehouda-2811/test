@@ -1,0 +1,7 @@
+OrderID|CustomerID|Date|Category|Product|Price|Quantity|Total|PaymentMethod
+1001|C001|2023-03-10|Électronique|Smartphone|699.99|1|699.99|Carte
+1002|C002|2023-03-12|Mode|Jeans|49.99|2|99.98|PayPal
+1003|C003|2023-03-15|Maison|Aspirateur|199.99|1|199.99|Virement
+1004|C001|2023-04-01|Électronique|Casque Bluetooth|149.99|1|149.99|Carte
+1005|C002|2023-04-02|Mode|T-Shirt|19.99|3|59.97|PayPal
+1006|C004|2023-04-05|Maison|Lampe|LED|29.99|4|119.96|Carte
